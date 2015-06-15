@@ -1,12 +1,12 @@
 <?php
-
 $temp = $_GET['q'];
 $question = explode(" ", $temp);
 $position = sizeof($question) - 1;
-$city = $question[$position];
+$loc = $question[$position];
+$t = explode("?", $loc);
+$city = $t[0];
 $term = $question[$position-2];
-//echo $city;
-//echo $term;
+
 $url='http://api.openweathermap.org/data/2.5/weather?q='.$city;
 $json = file_get_contents($url);
 $array = json_decode($json, true);
